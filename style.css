@@ -1,0 +1,22 @@
+.header {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 30px;
+}
+.nav-bar {
+    display: flex; /* make nav bar horizontal rather than vertical */
+}
+.nav-bar a:hover {
+    background: bisque;
+}
+.tab { /* tab only exist within nav-bar, so it's ok to not use --> .nav-bar > tab {} */
+    padding-left: 46%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.tab.extra { /* over the previous attribute (.tab) */
+	padding-left: 60px;
+}
+#main-body {
+	display: flex;
+}
