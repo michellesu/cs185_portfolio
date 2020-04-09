@@ -1,27 +1,95 @@
 .header {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-top: 30px;
+    font-family: 'Raleway', sans-serif;
 }
-.nav-bar {
+.main-nav-bar { /* for main-nav-bar */
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: 'Raleway', sans-serif;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+.main-nav-bar a {
+    font-size: 18px;
+    color: rgb(0,0,0);
+    padding: 10px 12px;
+    text-decoration: none;
+}
+.main-nav-bar a.active {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.main-nav-bar a:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.second-nav-bar {
     display: flex; /* make nav bar horizontal rather than vertical */
 }
 .tab { /* tab only exist within nav-bar, so it's ok to not use --> .nav-bar > tab {} */
     padding-left: 46%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 10px;
 }
 .tab.extra { /* over the previous attribute (.tab) */
 	padding-left: 5%;
 }
 .main-body {
     display: flex;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: medium;
-    padding-top: 15px;
+    padding-top: 1%;
     padding-left: 27%;
     padding-right: 15%;
 }
 p {
     line-height: 32px;
+}
+
+.img-parent {
+    display: grid;
+    padding-top: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1%;
+    justify-content: space-around; /* change space around elements horizontally when browswer size changes*/
+    /* align-items: center; center vertically */
+}
+.img-parent > div {
+    /* image caption font */
+    font-family: 'Raleway', sans-serif;
+}
+
+.img-child {
+    padding-left: 10px;
+    padding-bottom: 10px;
+
+    /* to center the images */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+img {
+    width: 90%;
+    height: auto;
+}
+
+.video-body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 17px;
+    /* margin-top: 35px; */
+    margin-left: 35px;
+}
+.video-parent {
+    display: grid;
+    padding-top: 8px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1%;
+    justify-content: space-around; /* change space around elements horizontally when browswer size changes*/
+    /* align-items: center; center vertically */
+}
+
+figure {
+    text-align: center;
+    font-style: italic;
+    width: 100%;
 }
