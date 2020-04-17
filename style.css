@@ -39,6 +39,9 @@
     padding-left: 27%;
     padding-right: 15%;
 }
+.main-body img{
+    margin-right: 20px;
+}
 p {
     line-height: 32px;
 }
@@ -120,7 +123,7 @@ p {
     height: auto;
 }
 .project-img {
-    
+
 }
 .project-blurb {
     text-align: center;
