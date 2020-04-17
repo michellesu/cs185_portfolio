@@ -24,15 +24,13 @@
 }
 .second-nav-bar {
     display: flex; /* make nav bar horizontal rather than vertical */
+    justify-content: center;
+    padding-bottom: 2%;
 }
-.tab { /* tab only exist within nav-bar, so it's ok to not use --> .nav-bar > tab {} */
-    padding-left: 46%;
-    padding-top: 15px;
-    padding-bottom: 10px;
+.tab {
+    padding-right: 2%;
 }
-.tab.extra { /* over the previous attribute (.tab) */
-	padding-left: 5%;
-}
+
 .main-body {
     display: flex;
     font-family: 'Raleway', sans-serif;
@@ -45,30 +43,30 @@ p {
     line-height: 32px;
 }
 
-.img-parent {
+.img-container {
     display: grid;
+    /* position: relative; */
     padding-top: 30px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1%;
-    justify-content: space-around; /* change space around elements horizontally when browswer size changes*/
-    /* align-items: center; center vertically */
+    grid-template-columns: repeat(auto-fill, minmax(370px,auto));
+    grid-gap: 2%;
+    justify-content: space-evenly; /* change space around elements horizontally when browswer size changes*/
+    align-items: center; /* center vertically */
 }
-.img-parent > div {
+.img-container > div {
     /* image caption font */
     font-family: 'Raleway', sans-serif;
 }
-
 .img-child {
-    padding-left: 10px;
-    padding-bottom: 10px;
-
     /* to center the images */
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.img-child:hover {
+    opacity: 0.75;
 } 
 
-img {
+.img-container img {
     width: 90%;
     height: auto;
 }
@@ -76,20 +74,104 @@ img {
 .video-body {
     font-family: 'Raleway', sans-serif;
     font-size: 17px;
-    /* margin-top: 35px; */
-    margin-left: 35px;
+    margin-top: 25px;
+    margin-left: 25px;
 }
-.video-parent {
+.video-container {
     display: grid;
-    padding-top: 8px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(400px, auto));
+    /* position: relative; */
+    /* position: relative; make embeded videos responsive */
+    padding-top: 10px;
+    padding-left: 9px;
+    padding-right: 25px;
+    
     grid-gap: 1%;
-    justify-content: space-around; /* change space around elements horizontally when browswer size changes*/
+    /* justify-content: space-around; change space around elements horizontally when browswer size changes */
     /* align-items: center; center vertically */
 }
-
-figure {
-    text-align: center;
-    font-style: italic;
+.video-container iframe {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
     width: 100%;
+    /* height: 100%; */
+}
+/* .video-container iframe:hover {
+    opacity: 0.99;
+} */
+
+.project-container {
+    display: grid;
+    /* position: relative; */
+    margin-top: 30px;
+    margin-left: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(370px,auto));
+    grid-gap: 2%;
+}
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    grid-template-rows: 300px 30px;
+}
+.project img {
+    width: 100%;
+    height: auto;
+}
+.project-img {
+    
+}
+.project-blurb {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    line-height: 21px;
+    padding-top: 1%;
+}
+.project-blurb > .title {
+    font-size: 17px;
+    line-height: 24px;
+}
+.project-blurb > .description {
+    font-style: italic;
+}
+
+
+.modal-body {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+}
+.modal-body img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 11px;
+    width: 100%;
+}
+.modal-body video {
+    /* center video */
+    display: block;
+    margin: auto;
+}
+
+#backToTopButton {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    background-color: #436068;
+    color: white;
+    cursor: pointer;
+    padding: 17px;
+    border-radius: 4px;
+    font-family: 'Raleway', sans-serif;
+
+}
+#backToTopButton:hover {
+    background-color: #555;
 }

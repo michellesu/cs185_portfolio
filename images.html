@@ -2,10 +2,15 @@
 <html>
 <head>
 	<title>Michelle Su</title> <!-- Appear on tab -->
-	<link rel="stylesheet" type="text/css" href="style.css">
 	<!-- favicon (source: fontawesome; license: https://fontawesome.com/license) -->
     <link rel="shortcut icon" type="image/x-icon" href="images/cat-solid.svg"> 
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
+    <!-- bootstrap/javascript/jquery for modal -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body style="background-color:rgb(202, 235, 235);">
@@ -16,19 +21,52 @@
 		<a href="projects.html">Projects</a>
     </div>
     
-    <div class="img-parent">
-        <div class="img-child"><img src="images/img1.jpg"></div>
-        <div class="img-child"><img src="images/img2.jpg"></div>
-        <div class="img-child"><img src="images/img3.jpg"></div>
-        <div class="img-child"><b>New York, NY</b></div>
-        <div class="img-child"><b>Santa Barbara, CA</b></div>
-        <div class="img-child"><b>Nikko, Japan</b></div>
-        <div class="img-child"><img src="images/img4.jpg"></div>
-        <div class="img-child"><img src="images/img5.jpg"></div>
-        <div class="img-child"><img src="images/img6.jpg"></div>
-        <div class="img-child"><b>Clarksburg, MD</b></div>
-        <div class="img-child"><b>Taipei, Taiwan</b></div>
-        <div class="img-child"><b>Nikko, Japan</b></div>
+    <div class="img-container">
+        <div class="img-child"><img src="images/img1.jpg" alt="New York, NY"></div>
+        <div class="img-child"><img src="images/img2.jpg" alt="Santa Barbara, CA"></div>
+        <div class="img-child"><img src="images/img3.jpg" alt="Nikko, Japan"></div>
+        <div class="img-child"><img src="images/img4.jpg" alt="Clarksburg, MD"></div>
+        <div class="img-child"><img src="images/img5.jpg" alt="Taipei, Taiwan"></div>
+        <div class="img-child"><img src="images/img6.jpg" alt="Nikko, Japan"></div>
+    </div>
+
+
+    <!-- back to top button, appears after user scroll for a bit -->
+    <button id="backToTopButton" onclick="scrollToTop()">Back To Top</button>
+
+    <!-- Modal Javascript -->
+    <script>
+        $(document).ready(function() { // prevent jquery from running before document is fully loaded
+            $(".img-child").click(function() {
+                $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+                var captionText = $(this).find('img').attr('alt');
+                $('.caption').text(captionText);
+                console.log($(this).find('img').attr('alt'));
+                $("#myModal").modal();
+            });
+            
+        });
+    </script>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <!-- <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                    <!-- <h4 class="modal-title">Modal Header</h4> -->
+                <!-- </div> -->
+                <div class="modal-body">
+                    <img src="" class="imagepreview">
+                    <div class="caption"></div>
+                </div>
+                <!-- <div class="modal-footer">
+                    <div class="caption"></div> -->
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                <!-- </div> -->
+            </div>
+        </div>
     </div>
 
 

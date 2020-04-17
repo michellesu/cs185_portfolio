@@ -6,6 +6,7 @@
 	<!-- favicon (source: fontawesome; license: https://fontawesome.com/license) -->
 	<link rel="shortcut icon" type="image/x-icon" href="images/cat-solid.svg">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
+    <script src="script.js"></script>
 </head>
 
 <body style="background-color:rgb(202, 235, 235);">
@@ -21,22 +22,22 @@
         <h1>Michelle Su</h1>
         <p>University of California, Santa Barbara</p>
         <p>Computer Science B.S.</p>
-        <p>Class of 2020</p>
+		<p>Class of 2020</p>
 	</div>
 
-	<div class="second-nav-bar"> <!-- External link nav bar -->
-		<div class="tab" style="left:50%">
+	<div class="second-nav-bar">
+		<div class="tab">
 			<a href="https://github.com/michellesu"><img src="images/githubLogo.svg" style="width:30px"></a>
 		</div>
-		<div class="tab extra">
-			<a href="https://www.linkedin.com/in/michellepysu/"><img src="images/linkedinLogo.png" style="width:30px"></a>
-		</div>
+		<a href="https://www.linkedin.com/in/michellepysu/"><img src="images/linkedinLogo.png" style="width:30px"></a>
 	</div>
+
 	<div class="main-body">
 		<div>
 			<img src="images/bodyimg.jpeg" width=260px>
 		</div>
-		<div style="margin-left: 6em"> <!-- margin-left: to indent this block of text-->
+		<!-- <div style="margin-left: 6em">  -->
+			<!-- margin-left: to indent this block of text-->
 			<p>
 				Hello! My name is Michelle, and I am a 4th year CS major at UCSB, 
 				expected to graduate in the spring. Originally a physics major, I later
@@ -47,8 +48,12 @@
 			<p>
 				
 			</p>
-		</div>
+		<!-- </div> -->
 		
 	</div>
+
+    <!-- back to top button, appears after user scroll for a bit -->
+    <button id="backToTopButton" onclick="scrollToTop()">Back to top</button>
+
 </body>
 </html>

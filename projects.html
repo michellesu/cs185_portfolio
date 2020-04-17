@@ -6,6 +6,7 @@
 	<!-- favicon (source: fontawesome; license: https://fontawesome.com/license) -->
     <link rel="shortcut icon" type="image/x-icon" href="images/cat-solid.svg"> 
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
+    <script src="script.js"></script>
 </head>
 
 <body style="background-color:rgb(202, 235, 235);">
@@ -16,32 +17,43 @@
 		<a class="active" href="projects.html">Projects</a>
     </div>
 
-    <div class="img-parent">
-        <div class="img-child">
-            <figure>
+    <div class="project-container">
+        <div class="project">
+            <div class="project-img">
                 <a href="https://shop-my-style.herokuapp.com/">
-                    <img style="width:100%; height:100%; padding-bottom: 12px;" src="images/shopmystyle.png">
+                    <img src="images/shopmystyle.png">
                 </a>
-                <figcaption>
+            </div>
+            <div class="project-blurb">
+                <div class="title">
                     <b>Shop My Style <br></b>
+                </div>
+                <div class="description">
                     Web app that allows users to share and browse other people's outfits
-                </figcaption>
-            </figure>
+                </div>
+            </div>
         </div>
 
-        <div class="img-child">
-            <figure>
+        <div class="project">
+            <div class="project-img">
                 <a href="https://github.com/michellesu/facemap">
-                    <img style="width:100%; height:100%; padding-bottom: 12px;" src="images/mapofthings.png">
+                    <img src="images/mapofthings.png">
                 </a>
-                <figcaption>
+            </div>
+            <div class="project-blurb">
+                <div class="title">
                     <b>Map of Things</b><br>
-                    Find the most frequently occuring object from photogra/phs of 
+                </div>
+                <div class="description">
+                    Find the most frequently occuring object from photographs of 
                     the 50 states using machine learning algorithm
-                </figcaption>
-            </figure>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- back to top button, appears after user scroll for a bit -->
+    <button id="backToTopButton" onclick="scrollToTop()">Back to top</button>
 
 </body>
 </html>
