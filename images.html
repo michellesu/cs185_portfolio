@@ -8,7 +8,7 @@
     <!-- bootstrap/javascript/jquery for modal -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -35,39 +35,79 @@
     <button id="backToTopButton" onclick="scrollToTop()">Back To Top</button>
 
     <!-- Modal Javascript -->
-    <script>
-        $(document).ready(function() { // prevent jquery from running before document is fully loaded
-            $(".img-child").click(function() {
-                $('.imagepreview').attr('src', $(this).find('img').attr('src'));
-                var captionText = $(this).find('img').attr('alt');
-                $('.caption').text(captionText);
-                console.log($(this).find('img').attr('alt'));
-                $("#myModal").modal();
+    <script type="text/javascript">
+        // no bootstrap :(
+        // $(document).ready(function() { // prevent jquery from running before document is fully loaded
+        //     $(".img-child").click(function() {
+        //         $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+        //         var captionText = $(this).find('img').attr('alt');
+        //         $('.caption').text(captionText);
+        //         console.log($(this).find('img').attr('alt'));
+        //         $("#myModal").modal();
+        //     });
+        // });
+        // const modal = document.createElement("div");
+        // modal.id = "modal";
+
+        // const allImages = document.querySelectorAll("img");
+        // img.forEach(image => {
+        //     image.addEventListener("click", e=>{
+        //         modal.className="active";
+        //     })
+        //     const img = document.createElement("img");
+        //     img.src = image.src;
+        //     while(modal.firstChild)
+        //         modal.removeChild(modal.firstChild);
+        //     modal.appendChild(img);
+        // });
+
+        var modal = document.createElement("div");
+        modal.id = "modal";
+        document.body.appendChild(modal);
+
+        var images = document.querySelectorAll("img");
+        images.forEach(item => {
+            item.addEventListener("click", e => {
+                var img = document.createElement("img");
+                img.src = item.src;
+                //add caption
+                var caption = document.createElement("p");
+                caption.innerHTML = item.alt;
+                // remove other images from modal if they were previously clicked on/added
+                modal.innerHTML = "";
+                modal.appendChild(img);
+                modal.appendChild(caption);
+                modal.className = "showmodal";
             });
-            
-        });
+        })
+        modal.addEventListener("click", e => {
+            if(e.target != e.currentTarget) {
+                return;
+            }
+            modal.classList.remove("showmodal");
+        })
     </script>
     
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
+    <!-- Bootstrap Modal -->
+    <!-- <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog"> -->
             <!-- Modal content-->
-            <div class="modal-content">
+            <!-- <div class="modal-content"> -->
                 <!-- <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button> -->
                     <!-- <h4 class="modal-title">Modal Header</h4> -->
                 <!-- </div> -->
-                <div class="modal-body">
+                <!-- <div class="modal-body">
                     <img src="" class="imagepreview">
                     <div class="caption"></div>
-                </div>
+                </div> -->
                 <!-- <div class="modal-footer">
                     <div class="caption"></div> -->
                     <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                 <!-- </div> -->
-            </div>
-        </div>
-    </div>
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
 
 
 </body>
