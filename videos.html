@@ -8,7 +8,7 @@
     <!-- bootstrap/javascript/jquery for modal -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -43,26 +43,12 @@
                 </video>
 
             </div>
-        <!-- </div> -->
-        
-        <!-- <p>
-            <b>Cat videos...because why not :)</b>
-        </p> -->
-        <!-- <div class="video-container"> -->
             <div class="img-child">
                 <!-- <iframe width="420" height="310" src="https://www.youtube.com/embed/TQqVB3q23Ys"></iframe> -->
                 <video width="400" height="270" src="videos/vid4.mp4" type="video/mp4" controls>
                 </video>
             </div>
-            <!-- <div class="img-child">
-                <iframe width="420" height="310" src="https://www.youtube.com/embed/TbiedguhyvM"></iframe>
-            </div> -->
-            <!-- <div class="img-child">
-                <iframe width="420" height="310" src="https://www.youtube.com/embed/NBoQmTgTrxs"></iframe>
-            </div> -->
         </div>
-
-        <!-- <iframe width="420" height="310" src="https://www.youtube.com/embed/IGInsosP0Ac"></iframe> -->
     </div>
 
     <!-- back to top button, appears after user scroll for a bit -->
@@ -71,64 +57,99 @@
 
     <!-- video modal script -->
     <script>
-        $(document).ready(function() { // prevent jquery from running before document is fully loaded
-            console.log("hello world!!!!!!!!!!!!!!!!");
+        // Bootstrap modal script
+        // $(document).ready(function() { // prevent jquery from running before document is fully loaded
+        //     console.log("hello world!!!!!!!!!!!!!!!!");
 
-            $(".img-child").click(function(e) {
-                // stop video on the page from playing because we want it to play in modal
-                e.preventDefault();
+        //     $(".img-child").click(function(e) {
+        //         // stop video on the page from playing because we want it to play in modal
+        //         e.preventDefault();
 
-                $('.videopreview').attr('src', $(this).find('video').attr('src'));
-                var url = $(this).find('video').attr('src');
-                console.log(url);
-                console.log(url == "videos/vid4.mp4");
+        //         $('.videopreview').attr('src', $(this).find('video').attr('src'));
+        //         var url = $(this).find('video').attr('src');
+        //         console.log(url);
+        //         console.log(url == "videos/vid4.mp4");
                 
-                // set size of different videos
-                if(url == "videos/vid4.mp4") {
-                    $('.videopreview').attr('width', "100%");
-                    $('.videopreview').attr('height', "auto");
-                    console.log("in if statement");
-                }
-                else {
-                    $('.videopreview').attr('width', "auto");
-                    $('.videopreview').attr('height', "90%");
-                }
+        //         // set size of different videos
+        //         if(url == "videos/vid4.mp4") {
+        //             $('.videopreview').attr('width', "100%");
+        //             $('.videopreview').attr('height', "auto");
+        //             console.log("in if statement");
+        //         }
+        //         else {
+        //             $('.videopreview').attr('width', "auto");
+        //             $('.videopreview').attr('height', "90%");
+        //         }
 
-                // make modal appear
-                $("#myModal").modal();
+        //         // make modal appear
+        //         $("#myModal").modal();
 
-                // autoplay video when modal pops up
-                // $("#myModal").on('show.bs.modal', function(){
-                //     $(".videopreview")[0].play();
-                // });
+        //         // autoplay video when modal pops up
+        //         // $("#myModal").on('show.bs.modal', function(){
+        //         //     $(".videopreview")[0].play();
+        //         // });
+        //     });
+
+        //     // stop modal video from playing when modal disappears
+        //     $("#myModal").on('hide.bs.modal', function(){
+        //         $(".videopreview").attr('src', '');
+        //     });
+
+        // });
+
+        // insert modal div
+        var modal = document.createElement("div");
+        modal.id = "modal";
+        document.body.appendChild(modal);
+        
+        // add event listener to videos
+        var videos = document.querySelectorAll("video");
+        // console.log(videos)
+        videos.forEach(item => {
+            item.addEventListener("click", e => {
+                // prevent video from playing when you click on them - want them to play in modal
+                e.preventDefault(); 
+
+                var vid = document.createElement('video');
+                vid.id = "videopreview";
+                vid.src = item.src;
+                vid.autoplay = "autoplay";
+                vid.controls = "controls";
+                // remove other videos from modal if they were previously clicked on/added
+                modal.innerHTML = "";
+                modal.appendChild(vid);
+                modal.className = "showmodal";
             });
-
-            // stop modal video from playing when modal disappears
-            $("#myModal").on('hide.bs.modal', function(){
-                $(".videopreview").attr('src', '');
-            });
-
-        });
+        })
+        modal.addEventListener("click", e => {
+            if(e.target != e.currentTarget)
+                return;
+            modal.classList.remove("showmodal");
+            // stop modal video from playing in the background after exiting modal
+            var vid = document.getElementById("videopreview");
+            vid.src = "";
+            
+        })	
     </script>
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
+    <!-- Bootstrap Modal -->
+    <!-- <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog"> -->
             <!-- Modal content-->
-            <div class="modal-content">
+            <!-- <div class="modal-content"> -->
                 <!-- <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div> -->
-                <div class="modal-body">
-                    <video src="" class="videopreview" controls autoplay="autoplay"></video>
+                <!-- <div class="modal-body">
+                    <video src="" class="videopreview" controls autoplay="autoplay"></video> -->
                     <!-- <iframe src="" class="videopreview" width="100%" height="100%" allowfullscreen></iframe> -->
                     <!-- <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="" allowfullscreen allowautoplay></iframe>
                     </div> -->
-                </div>
+                <!-- </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </body>
 </html>
